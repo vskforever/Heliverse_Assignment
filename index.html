@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Management</title>
+     <link rel="stylesheet" href="style.css">
+     <script src="script.js"></script>
+</head>
+<body>
+    <nav>
+        <img src="images/school-logo.png" alt="School Logo" class="logo">
+        <h1>Classroom Management System</h1>
+        <ul>
+            <li><a href="#" onclick="showPrincipalView()">Principal</a></li>
+            <li><a href="#" onclick="showTeacherView()">Teacher</a></li>
+            <li><a href="#" onclick="showStudentView()">Student</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <!-- Principal View -->
+        <section id="principal-view" class="hidden">
+            <h2>Principal Dashboard</h2>
+            <div class="buttons">
+                <button onclick="showCreateClassroomForm()">
+                    <img src="images/create-classroom.png" alt="Create Classroom">
+                    Create Classroom
+                </button>
+                <button onclick="showAssignTeacherForm()">
+                    <img src="images/assign-teacher.png" alt="Assign Teacher">
+                    Assign Teacher
+                </button>
+            </div>
+            <div id="classroom-list">
+                <h3>Classrooms</h3>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Teacher</th>
+                        <th>Actions</th>
+                    </tr>
+                    <!-- Classroom rows will be dynamically added here -->
+                </table>
+            </div>
+        </section>
+
+        <!-- Teacher View -->
+        <section id="teacher-view" class="hidden">
+            <h2>Teacher Dashboard</h2>
+            <div id="student-list">
+                <h3>Students</h3>
+                <table>
+                    <tr>
+                        <th>Profile</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                    <!-- Student rows will be dynamically added here -->
+                </table>
+            </div>
+            <button onclick="showCreateTimetableForm()">
+                <img src="images/create-timetable.png" alt="Create Timetable">
+                Create Timetable
+            </button>
+        </section>
+
+        <!-- Student View -->
+        <section id="student-view" class="hidden">
+            <h2>Student Dashboard</h2>
+            <div id="class-timetable">
+                <h3>Class Timetable</h3>
+                <table>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                    </tr>
+                    <!-- Timetable rows will be dynamically added here -->
+                </table>
+            </div>
+        </section>
+
+        <!-- Forms -->
+        <section id="forms" class="hidden">
+            <!-- Create Classroom Form -->
+            <div id="create-classroom-form" class="hidden">
+                <h3>Create Classroom</h3>
+                <form>
+                    <label for="classroom-name">Classroom Name:</label>
+                    <input type="text" id="classroom-name">
+                    <label for="start-time">Start Time:</label>
+                    <input type="time" id="start-time">
+                    <label for="end-time">End Time:</label>
+                    <input type="time" id="end-time">
+                    <label for="days">Days:</label>
+                    <input type="text" id="days" placeholder="e.g., Monday to Saturday">
+                    <button type="button" onclick="createClassroom()">Create</button>
+                </form>
+            </div>
+
+            <!-- Assign Teacher Form -->
+            <div id="assign-teacher-form" class="hidden">
+                <h3>Assign Teacher to Classroom</h3>
+                <form>
+                    <label for="teacher-name">Teacher Name:</label>
+                    <input type="text" id="teacher-name">
+                    <label for="classroom-select">Select Classroom:</label>
+                    <select id="classroom-select">
+                        <!-- Classroom options will be dynamically added here -->
+                    </select>
+                    <button type="button" onclick="assignTeacher()">Assign</button>
+                </form>
+            </div>
+
+            <!-- Create Timetable Form -->
+            <div id="create-timetable-form" class="hidden">
+                <h3>Create Timetable</h3>
+                <form>
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject">
+                    <label for="subject-start-time">Start Time:</label>
+                    <input type="time" id="subject-start-time">
+                    <label for="subject-end-time">End Time:</label>
+                    <input type="time" id="subject-end-time">
+                    <button type="button" onclick="createTimetable()">Add Period</button>
+                </form>
+            </div>
+        </section>
+        
+    </main>
+
+     
+</body>
+</html>
